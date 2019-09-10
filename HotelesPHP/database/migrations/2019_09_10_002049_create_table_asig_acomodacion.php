@@ -13,8 +13,21 @@ class CreateTableAsigAcomodacion extends Migration
      */
     public function up()
     {
-        Schema::create('table_asig_acomodacion', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('asig_acomodacion', function (Blueprint $table) {
+            $table->integer('cant_hab');
+            $table->integer('thab_cod');
+            $table->foreign('thab_cod')
+            ->references('thab_id')->on('tipohab')
+            ->onDelete('cascade');
+            $table->integer('aco_cod');
+            $table->foreign('aco_cod')
+            ->references('aco_id')->on('acomodacion')
+            ->onDelete('cascade');
+            $table->integer('hot_cod');
+            $table->foreign('hot_cod')
+            ->references('hot_nit')->on('hotel')
+            ->onDelete('cascade');
+            $table->primary(['thab_cod', 'aco_cod']);
             $table->timestamps();
         });
     }
@@ -26,6 +39,6 @@ class CreateTableAsigAcomodacion extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_asig_acomodacion');
+        Schema::dropIfExists('asig_acomodacion');
     }
 }
