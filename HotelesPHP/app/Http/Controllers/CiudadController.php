@@ -36,7 +36,7 @@ class CiudadController extends Controller
 
     public function show($id){
 
-    	$Ciudad=CiudadModel::find($id);
+    	$Ciudad=CiudadModel::where('ciu_id', $id)->get();
     	if(!empty($Ciudad)){
     		return response()->json(['CODE' => 'OK','DATA' => $Ciudad]);
     	}else{
