@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class AcomodacionModel extends Model
 {
     protected $table = 'acomodacion';
-    protected $fillable = ['aco_id','aco_nombre'];
+    protected $primaryKey = 'aco_id';
+    protected $fillable = ['aco_nombre'];
 }

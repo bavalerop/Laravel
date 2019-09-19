@@ -177,3 +177,12 @@ Route::post('/estudiante','EstudianteController@create');
 Route::get('/estudiante/{id?}','EstudianteController@show');
 Route::put('/estudiante/{id?}','EstudianteController@update');
 Route::delete('/estudiante/{id?}','EstudianteController@delete');
+
+********solucion de errores despues de clonar proyectos*********
+composer update --no-scripts
+cp .env.example .env
+php artisan key:generate
+Cambiar cadenas de conexion
+crear base de datos
+php artisan migrate 
+**********************************************************
